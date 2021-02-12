@@ -1,0 +1,91 @@
+<!--
+ * File: create.component.html
+ * Description: Arquivo html para criação de novos veiculos
+ * Author: Sérgio Peluzzi
+ * Date: 2021-02-11
+ -->
+ <!-- INICIO DO PAINEL -->
+<div class="card">
+    <h4 class="card-header">
+        {{ title }}
+    </h4>
+    <div class="card-body">
+        <!-- INICIO DO FORMULÁRIO -->
+        <form [formGroup]="ngForm" novalidate>
+            <!-- ID -->
+            <div class="form-group">
+                <label class="col-md-4">Id</label>
+                <input type="text" class="form-control" formControlName="id" #id/>
+            </div>
+            <div *ngIf="ngForm.controls['id'].invalid && (ngForm.controls['id'].dirty || ngForm.controls['id'].touched)" class="alert alert-danger">
+                <div *ngIf="ngForm.controls['id'].errors.required">
+                    Id é obrigatório
+                </div>
+            </div>
+            <!-- Placa -->
+            <div class="form-group">
+                <label class="col-md-4">Placa</label>
+                <input type="text" class="form-control" formControlName="placa" #placa/>
+            </div>
+            <div *ngIf="ngForm.controls['placa'].invalid && (ngForm.controls['placa'].dirty || ngForm.controls['placa'].touched)" class="alert alert-danger">
+                <div *ngIf="ngForm.controls['placa'].errors.required">
+                    Placa é obrigatório
+                </div>
+            </div>
+            <!-- Chassi -->
+            <div class="form-group">
+                <label class="col-md-4">Chassi</label>
+                <input type="text" class="form-control" formControlName="chassi" #chassi/>
+            </div>
+            <div *ngIf="ngForm.controls['chassi'].invalid && (ngForm.controls['chassi'].dirty || ngForm.controls['chassi'].touched)" class="alert alert-danger">
+                <div *ngIf="ngForm.controls['chassi'].errors.required">
+                    Chassi é obrigatório
+                </div>
+            </div>
+            <!-- Renavam -->
+            <div class="form-group">
+                <label class="col-md-4">Renavam</label>
+                <input type="text" class="form-control" formControlName="renavam" #renavam/>
+            </div>
+            <div *ngIf="ngForm.controls['renavam'].invalid && (ngForm.controls['renavam'].dirty || ngForm.controls['renavam'].touched)" class="alert alert-danger">
+                <div *ngIf="ngForm.controls['renavam'].errors.required">
+                    Renavam é obrigatório
+                </div>
+            </div>
+            <!-- Modelo -->
+            <div class="form-group">
+                <label class="col-md-4">Modelo</label>
+                <input type="text" class="form-control" formControlName="modelo" #modelo/>
+            </div>
+            <div *ngIf="ngForm.controls['modelo'].invalid && (ngForm.controls['modelo'].dirty || ngForm.controls['modelo'].touched)" class="alert alert-danger">
+                <div *ngIf="ngForm.controls['modelo'].errors.required">
+                    Modelo é obrigatório
+                </div>
+            </div>
+            <!-- Marca -->
+            <div class="form-group">
+                <label class="col-md-4">Marca</label>
+                <input type="text" class="form-control" formControlName="marca" #marca/>
+            </div>
+            <div *ngIf="ngForm.controls['marca'].invalid && (ngForm.controls['marca'].dirty || ngForm.controls['marca'].touched)" class="alert alert-danger">
+                <div *ngIf="ngForm.controls['marca'].errors.required">
+                    Marca é obrigatório
+                </div>
+            </div>
+            <!-- Ano -->
+            <div class="form-group">
+                <label class="col-md-4">Ano</label>
+                <input type="text" class="form-control" formControlName="ano" #ano/>
+            </div>
+            <div *ngIf="ngForm.controls['ano'].invalid && (ngForm.controls['ano'].dirty || ngForm.controls['ano'].touched)" class="alert alert-danger">
+                <div *ngIf="ngForm.controls['ano'].errors.required">
+                    Ano é obrigatório
+                </div>
+            </div>
+            <!-- Botão Adicionar -->
+            <div class="form-group">
+                <button (click)="addVehicle(id.value, placa.value, renavam.value, chassi.value, modelo.value, marca.value, ano.value)" [disabled]="ngForm.invalid || ngForm.pristine" type="submit" class="btn btn-lg btn-primary">Adicionar</button>
+            </div>
+        </form>
+    </div>
+</div>
